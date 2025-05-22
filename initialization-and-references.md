@@ -1,0 +1,159 @@
+# Initialization and References
+
+## Initialization
+
+Initialization: How we provide initial values to variables
+
+### Uniform initialization
+
+Uniform initialization: 大括号{}初始化. 对所有类型都可用, 在声明时立刻初始化.
+
+```cpp
+std::vector<int> vec{1,3,5};
+std::pair<int, string> numSuffix1{1, "st"};
+Student s{"Sarah", "CA", 21};
+
+// 对基本类型使用较少, 但是也能用
+int x{5};
+string f{"Sarah"};
+
+// 注意vector在不同括号初始化下的行为
+std::vector<int> vec1(3,5);
+// makes {5, 5, 5}
+// uses std::initializer_list
+
+std::vector<int> vec2{3, 5};
+// makes {3, 5}
+```
+
+总结: 使用统一初始化(大括号初始化)初始化所有非基本类型的成员, 但是注意vector的行为
+
+
+
+### auto
+
+对于长类型名, 使用auto可以使代码cleaner, 但是不要滥用, 将基本类型也用auto代替会降低可读性.
+
+
+
+### Structured Binding
+
+结构化绑定, 可以直接使用结构体的内容初始化变量
+
+```cpp
+// Before
+auto p = std::make_pair("s", 5);
+string a = p.first;
+int b = p.second;
+
+// After
+auto p = std::make_pair("s", 5);
+auto [a, b] = p;
+
+// Work for regular structs too. No nested structured binding.
+
+auto result = quadratic(a, b, c);
+// 替换为
+auto [found, solutions] = quadratic(a, b, c);
+
+// 变量名更清晰, 语义上更好
+```
+
+
+
+## Reference
+
+引用: 一个已经命名过的变量的**别名**
+
+```cpp
+void changeX(int& x) {
+    x = 0;
+}
+
+void keepX(int x) {
+    x = 0;
+}
+
+int a = 100;
+int b = 100;
+
+changeX(a); // x是a的一份引用
+keepX(b); // x是b的一份复制
+
+cout << a << endl; // 0
+cout << b << endl; // 100
+```
+
+
+
+### Standard C++ vector(intro)
+
+```cpp
+vector<int> original{1, 2};
+vector<int> copy = original;
+vector<int>& ref = original;
+
+// 对类类型(struct, union, class 类型)的对象的赋值由名为 operator= 的函数执行.
+// 此运算符函数的默认行为是执行对象的非静态数据成员和直接基类的逐个成员复制赋值.
+// 引用ref事实上是一个别名
+
+original.push_back(3);
+copy.push_bacK(4);
+ref.push_back(5);
+
+cout << original << endl; // {1, 2, 3, 5}
+cout << copy << endl; // {1, 2, 4}
+cout << ref << endl; // {1, 2, 3, 5}
+```
+
+```cpp
+// 以下的函数存在bug
+void shift(vector<std::pair<int, int>>& nums) {
+    for (size_t i = 0; i < nums.size(); ++i) {
+        auto [num1, num2] = nums[i];
+        num1++;
+        num2++;
+    }
+}
+// size_t通常用于索引, 它是无符号, 并且会自动调整数据宽度(使用了sizeof())
+// 在工业级的编译器中, ++i与i++在for循环中没有区别, 它们编译后是完全一样的
+
+// 以上的函数中, num1和num2是两份复制, 修改它们对原数据无影响
+// 更正后如下:
+void shift(vector<std::pair<int, int>>& nums) {
+    for (size_t i = 0; i < nums.size(); ++i) {
+        auto& [num1, num2] = nums[i];
+        num1++;
+        num2++;
+    }
+}
+```
+
+```cpp
+// 几乎相同的bug
+void shift(vector<std::pair<int, int>>& nums) {
+    for (auto [num1, num2]: nums) {
+        num1++;
+        num2++;
+    }
+}
+
+// 同样的, num1与num2都是复制
+// 更正后如下:
+void shift(vector<std::pair<int, int>>& nums) {
+    for (auto& [num1, num2]: nums) {
+        num1++;
+        num2++;
+    }
+}
+```
+
+
+
+### l-values vs r-values
+
+|   |   |
+| - | - |
+|   |   |
+|   |   |
+|   |   |

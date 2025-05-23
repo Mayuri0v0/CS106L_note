@@ -4,3 +4,4 @@
 * [1. Welcome](1.-welcome.md)
 * [2. Types and Structs](2.-types-and-structs.md)
 * [3. Initialization and References](3.-initialization-and-references.md)
+* [4. Streams](4.-streams.md)

@@ -6,3 +6,4 @@
 * [3. Initialization and References](3.-initialization-and-references.md)
 * [4. Streams](4.-streams.md)
 * [5. Containers](5.-containers.md)
+* [6. Iterators and Pointers](6.-iterators-and-pointers.md)

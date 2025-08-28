@@ -7,3 +7,4 @@
 * [4. Streams](4.-streams.md)
 * [5. Containers](5.-containers.md)
 * [6. Iterators and Pointers](6.-iterators-and-pointers.md)
+* [7. Classes](7.-classes.md)

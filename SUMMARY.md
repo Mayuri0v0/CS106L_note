@@ -8,3 +8,4 @@
 * [5. Containers](5.-containers.md)
 * [6. Iterators and Pointers](6.-iterators-and-pointers.md)
 * [7. Classes](7.-classes.md)
+* [8. Template Classes + Const Correctness](8.-template-classes-+-const-correctness.md)

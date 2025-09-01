@@ -9,3 +9,4 @@
 * [6. Iterators and Pointers](6.-iterators-and-pointers.md)
 * [7. Classes](7.-classes.md)
 * [8. Template Classes + Const Correctness](8.-template-classes-+-const-correctness.md)
+* [9. Template Functions](9.-template-functions.md)

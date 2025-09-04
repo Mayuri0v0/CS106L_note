@@ -11,3 +11,4 @@
 * [8. Template Classes + Const Correctness](8.-template-classes-+-const-correctness.md)
 * [9. Template Functions](9.-template-functions.md)
 * [10. Functions and Lambdas](10.-functions-and-lambdas.md)
+* [11. Operator Overloading](11.-operator-overloading.md)

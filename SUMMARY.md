@@ -12,3 +12,4 @@
 * [9. Template Functions](9.-template-functions.md)
 * [10. Functions and Lambdas](10.-functions-and-lambdas.md)
 * [11. Operator Overloading](11.-operator-overloading.md)
+* [12. Special Member Functions](12.-special-member-functions.md)

@@ -14,3 +14,4 @@
 * [11. Operator Overloading](11.-operator-overloading.md)
 * [12. Special Member Functions](12.-special-member-functions.md)
 * [13. Move Semantics](13.-move-semantics.md)
+* [14. std::optional and Type Safety](14.-std-optional-and-type-safety.md)
